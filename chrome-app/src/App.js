@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Button from "./Button";
-import styles from "./App.module.css";
-
 import bkimg from './Background.module.css';
+import Clock from './Clock';
+import clock from './Clock.module.css';
+
 
 const API_KEY = '34160554-a2eb623736da59fbc85ad3e5a';
 const searchQuery = 'nature';
@@ -38,8 +38,9 @@ const App = () => {
 
   return (
     <div className={bkimg.bkimg} style={{ backgroundImage: `url(${imageUrl})` }}>
-      <h1 className={styles.title}>Welcome back!</h1>
-      <Button text={"Continue"} />
+      <div className={clock.clock}>
+        < Clock/>
+      </div>
     </div>
   );
 };
