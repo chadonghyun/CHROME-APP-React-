@@ -1,38 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import bkimg from "./Background.module.css";
+import bkimg from './Background.module.css';
 
 const API_KEY = '34160554-a2eb623736da59fbc85ad3e5a';
-const API_URL = 'https://api.pexels.com/v1/search?query=nature&per_page=1&page=1';
+const searchQuery = 'nature';
 
-const RandomNatureImage = () => {
+const PixabayExample = () => {
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
-    const fetchRandomNatureImage = async () => {
+    const fetchPixabayImages = async () => {
       try {
-        const response = await axios.get(API_URL, {
-          headers: {
-            Authorization: API_KEY
-          }
-        });
-        const imageUrl = response.data.photos[0].src.original;
-        setImageUrl(imageUrl);
+        const encodedQuery = encodeURIComponent(searchQuery);
+        const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodedQuery}`;
+        console.log(URL);
+
+        const response = await axios.get(URL);
+        const data = response.data;
+
+        if (parseInt(data.totalHits) > 0) {
+          const randomIndex = Math.floor(Math.random() * data.hits.length);
+          const randomImage = data.hits[randomIndex];
+          setImageUrl(randomImage.largeImageURL);
+        } else {
+          console.log('No hits');
+        }
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchRandomNatureImage();
+    fetchPixabayImages();
   }, []);
 
   return (
     <div className={bkimg.bkimg}>
-      {imageUrl && <img src={imageUrl} alt="Random Nature" />}
+      {imageUrl && <img src={imageUrl} alt="Random" />}
     </div>
   );
 };
 
-export default RandomNatureImage;
+export default PixabayExample;
+
 
 
