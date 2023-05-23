@@ -16,7 +16,7 @@ const App = () => {
       try {
         const encodedQuery = encodeURIComponent(searchQuery);
         const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodedQuery}`;
-        console.log(URL);
+        // console.log(URL);
 
         const response = await axios.get(URL);
         const data = response.data;
@@ -38,6 +38,22 @@ const App = () => {
 
   return (
     <div className={bkimg.bkimg} style={{ backgroundImage: `url(${imageUrl})` }}>
+      <div className='bkcate'>
+        <ul>
+          <li>
+            <input type="radio" name='radioTxt' value='nature' checked/>자연
+          </li>
+          <li>
+            <input type="radio" name='radioTxt' value='city' />도시
+          </li>
+          <li>
+            <input type="radio" name='radioTxt' value='flower' />꽃
+          </li>
+          <li>
+            <input type="radio" name='radioTxt' value='galaxy' />우주
+          </li>
+        </ul>
+      </div>
       <div className={clock.clock}>
         < Clock/>
       </div>
