@@ -18,21 +18,24 @@ const App = () => {
         const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodedQuery}`;
         // console.log(URL);
 
+        // Pixabay API에서 이미지 가져오기
         const response = await axios.get(URL);
         const data = response.data;
 
         if (parseInt(data.totalHits) > 0) {
+          // 이미지가 있을 경우, 응답에서 무작위 이미지 선택
           const randomIndex = Math.floor(Math.random() * data.hits.length);
           const randomImage = data.hits[randomIndex];
           setImageUrl(randomImage.largeImageURL);
         } else {
-          console.log('No hits');
+          console.log('검색 결과가 없습니다');
         }
       } catch (error) {
         console.log(error);
       }
     };
 
+    // 컴포넌트가 마운트될 때 fetchPixabayImages 함수 호출
     fetchPixabayImages();
   }, []);
 
