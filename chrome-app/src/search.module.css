@@ -1,0 +1,31 @@
+.search_box{
+  position: absolute;
+  top: 20%; left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  text-align: center; 
+  background: #dddddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_box > input{
+  border: none;
+  background: none;
+  height: 40px;
+  width: 80%;
+  padding: 3px 0px 0px 30px;
+  font-size: 1rem;
+}
+
+input:focus { outline: none; }
+
+.search_box > button{
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  height: 43px; width: 50px;
+  vertical-align: middle;
+}

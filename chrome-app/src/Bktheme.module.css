@@ -1,0 +1,18 @@
+.bkcate{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.bkcate ul {
+  list-style: none;
+  padding: 0;
+}
+
+.bkcate li {
+  margin-bottom: 10px;
+}
+
+.bkcate input[type="radio"] {
+  margin-right: 5px;
+}
