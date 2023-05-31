@@ -1,0 +1,64 @@
+.favorites-container {
+  width: 70%;
+  height: 70px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  bottom: 50px;
+  left: 50%; transform: translateX(-50%);
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+  margin: 0px auto;
+}
+
+.favorites-container h2 {
+  position: absolute;
+  top: -20px;
+  padding-bottom: 10px;
+  line-height: -150px;
+}
+
+.favorites-container h2 > button {
+  padding: 5px 10px;
+  margin-left: 20px;
+  border-radius: 20px;
+  border: none;
+  font-family: 'omyu_pretty';
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+.favorites-list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: transform 0.3s ease;
+}
+
+.favorite-item {
+  flex-shrink: 0;
+  width: 70px !important;
+  height: 70px;
+}
+
+.favorite-item > a{
+  width: 70px; height: 70px;
+}
+
+.favorite-item > a > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.favorite-item > button {
+  background: none;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+

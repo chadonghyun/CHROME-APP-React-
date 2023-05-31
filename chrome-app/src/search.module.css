@@ -4,13 +4,15 @@
   transform: translateX(-50%);
   width: 50%;
   text-align: center; 
-  background: #dddddd;
+  background: rgba(221, 221, 221, .3);
+  box-shadow: 1px 0.5px 5px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
 }
 
 .search_box > input{
+  color: #505050;
   border: none;
   background: none;
   height: 40px;

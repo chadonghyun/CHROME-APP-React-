@@ -33,7 +33,7 @@ const Weather = () => {
   const getWeatherIcon = () => {
     if (weatherData) {
       const weatherMain = weatherData.weather[0].main;
-      return `${weatherMain}.png`; // 이미지 파일 이름 형식에 맞게 수정해주세요
+      return `${weatherMain}.png`;
     }
     return null;
   };
@@ -50,7 +50,7 @@ const Weather = () => {
     <div>
       {weatherData ? (
         <div className={weather.weather}>
-          <a href="https://weather.naver.com/today">
+          <a href="https://weather.naver.com/today" target="_blank" rel="noopener noreferrer">
             <img src={`${process.env.PUBLIC_URL}/images/${getWeatherIcon()}`} alt="Weather Icon" />
             <span>{weatherData.main.temp}°C</span>
             <span>{getKoreanCityName(weatherData.name)}</span>

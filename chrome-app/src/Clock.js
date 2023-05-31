@@ -52,12 +52,14 @@ const Clock = () => {
 
   return (
     <div className={clock.clock}>
-        <span className={clock.hours}>{hours}</span>
-        <span className={clock.colon}>:</span>
-        <span className={clock.minutes}>{minutes}</span>
-        <div className={clock.flex}>
-          <span className={clock.meridiem}>{meridiem}</span>
-          <span className={clock.seconds}>{seconds}</span>
+        <div className={clock.digitalClock}>
+          <span className={clock.hours}>{hours}</span>
+          <span className={clock.colon}>:</span>
+          <span className={clock.minutes}>{minutes}</span>
+          <div className={clock.flex}>
+            <span className={clock.meridiem}>{meridiem}</span>
+            <span className={clock.seconds}>{seconds}</span>
+          </div>
         </div>
         <div className={clock.date}>
           <span>{year}년</span>

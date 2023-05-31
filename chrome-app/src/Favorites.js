@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Favorite.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import './Favorites.css';
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -40,20 +42,27 @@ const Favorites = () => {
       {favorites.length === 0 ? (
         <p>즐겨찾기 추가하기</p>
       ) : (
-        <ul className="favorites-list">
+        <Swiper
+          slidesPerView="auto"
+          spaceBetween={30}
+          navigation={false}
+          pagination={false}
+          scrollbar={false}
+          // centeredSlides
+          initialSlide={Math.floor(favorites.length / 2)}
+        >
           {favorites.map((favorite, index) => (
-            <li key={index} className="favorite-item">
+            <SwiperSlide key={index} className="favorite-item">
               <a href={favorite.url} target="_blank" rel="noopener noreferrer">
-              <img src={favorite.favicon} alt="Favicon" className="favicon" />
+                <img src={favorite.favicon} alt="Favicon" className="favicon" />
               </a>
               <button onClick={() => handleRemoveFavorite(index)}>X</button>
-            </li>
+            </SwiperSlide>
           ))}
-        </ul>
+        </Swiper>
       )}
     </div>
   );
 };
 
 export default Favorites;
-

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import bkimg from './Background.module.css';
 import Clock from './Clock';
-import Bktheme from './Bktheme';
 import Weather from './Weather';
 import Favorites from './Favorites';
 import Search from './Search';
+import SubMenu from './SubMenu/SubMenu';
 
 const API_KEY = '34160554-a2eb623736da59fbc85ad3e5a';
 
@@ -45,7 +45,7 @@ const App = () => {
   return (
     <div className={bkimg.bkimg} style={{ backgroundImage: `url(${imageUrl})` }}>
       <Favorites />
-      <Bktheme theme={theme} handleThemeChange={handleThemeChange} />
+      <SubMenu theme={theme} handleThemeChange={handleThemeChange} />
       <Clock />
       <Weather />
       <Search />
@@ -54,5 +54,6 @@ const App = () => {
 };
 
 export default App;
+
 
 
