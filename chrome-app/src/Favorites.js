@@ -4,17 +4,8 @@ import 'swiper/css';
 import './Favorites.css';
 
 const Favorites = () => {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
 
-  // 즐겨찾기 로컬 스토리지에서 불러오기
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites');
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
-    }
-  }, []);
-
-  // 즐겨찾기 추가
   const handleAddFavorite = () => {
     const url = prompt('Enter the URL of the favorite website:');
     if (url) {
@@ -23,12 +14,10 @@ const Favorites = () => {
     }
   };
 
-  // 즐겨찾기 제거
   const handleRemoveFavorite = (index) => {
     setFavorites((prevFavorites) => prevFavorites.filter((_, i) => i !== index));
   };
 
-  // 즐겨찾기 변경 감지하여 로컬 스토리지에 저장
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
@@ -48,7 +37,6 @@ const Favorites = () => {
           navigation={false}
           pagination={false}
           scrollbar={false}
-          // centeredSlides
           initialSlide={Math.floor(favorites.length / 2)}
         >
           {favorites.map((favorite, index) => (
