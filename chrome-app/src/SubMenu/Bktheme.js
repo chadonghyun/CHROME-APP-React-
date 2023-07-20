@@ -45,6 +45,26 @@ const Bktheme = ({ theme, handleThemeChange }) => {
           />
           우주
         </li>
+        <li>
+          <input
+            type="radio"
+            name='radioTxt'
+            value='sky'
+            checked={theme === 'sky'}
+            onChange={handleThemeChange}
+          />
+          하늘
+        </li>
+        <li>
+          <input
+            type="radio"
+            name='radioTxt'
+            value='random'
+            checked={theme === 'random'}
+            onChange={handleThemeChange}
+          />
+          랜덤
+        </li>
       </ul>
     </div>
   );
