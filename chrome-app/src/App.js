@@ -11,7 +11,7 @@ const API_KEY = '34160554-a2eb623736da59fbc85ad3e5a';
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState('');
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'city'); // 초기값을 로컬 스토리지에서 가져옴
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'city');
 
   useEffect(() => {
     const fetchPixabayImages = async () => {
@@ -39,7 +39,7 @@ const App = () => {
   const handleThemeChange = (event) => {
     const selectedTheme = event.target.value;
     setTheme(selectedTheme);
-    localStorage.setItem('theme', selectedTheme); // 선택한 테마 값을 로컬 스토리지에 저장
+    localStorage.setItem('theme', selectedTheme);
   };
 
   return (
@@ -54,6 +54,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
