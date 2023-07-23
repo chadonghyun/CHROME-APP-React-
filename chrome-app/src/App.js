@@ -6,6 +6,7 @@ import Weather from './Weather';
 import Favorites from './Favorites';
 import Search from './Search';
 import SubMenu from './SubMenu/SubMenu';
+import Memo from './Memo';
 
 const API_KEY = '34160554-a2eb623736da59fbc85ad3e5a';
 
@@ -49,6 +50,7 @@ const App = () => {
       <Clock />
       <Weather />
       <Search />
+      <Memo /> 
     </div>
   );
 };
